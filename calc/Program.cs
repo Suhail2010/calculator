@@ -87,7 +87,7 @@ namespace calc
         }
         static void Dela()
         {
-            Start:
+            //Start:
             num1 = GetNumber();
             WriteLine(" ÷");
             num2 = GetNumber();
@@ -96,7 +96,8 @@ namespace calc
             else
             {
                 WriteLine("Error Divide by zero, ange ny nummer: "); 
-                goto Start;
+                //goto Start;
+                Dela();
             }
             ReadLine();
         }
