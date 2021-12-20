@@ -27,16 +27,28 @@ namespace calc
                 switch (menue)
                 {
                     case 1:
-                        Plus();
+                        num1 = GetNumber();
+                        WriteLine(" +");
+                        num2 = GetNumber();
+                        Plus(num1,num2);
                         break;
                     case 2:
-                        Minus();
+                        num1 = GetNumber();
+                        WriteLine(" -");
+                        num2 = GetNumber();
+                        Minus(num1, num2);
                         break;
                     case 3:
-                        Multi();
+                        num1 = GetNumber();
+                        WriteLine(" *");
+                        num2 = GetNumber();
+                        Multi(num1, num2);
                         break;
                     case 4:
-                        Dela();
+                        num1 = GetNumber();
+                        WriteLine(" ÷");
+                        num2 = GetNumber();
+                        Dela(num1, num2);
                         break;
                     case 0:
                         Clear();
@@ -61,43 +73,28 @@ namespace calc
             return check ? input : GetNumber();
         }
 
-        static void Plus()
+        static void Plus(double num1,double num2)
         {
-            num1 = GetNumber();
-            WriteLine(" +");
-            num2 = GetNumber();
             WriteLine($"\n{num1} + {num2} = {num1 + num2}");
             ReadLine();
         }
-        static void Minus()
+        static void Minus(double num1, double num2)
         {
-            num1 = GetNumber();
-            WriteLine(" -");
-            num2 = GetNumber();
             WriteLine($"\n{num1} - {num2} = {num1 - num2}");
             ReadLine();
         }
-        static void Multi()
+        static void Multi(double num1, double num2)
         {
-            num1 = GetNumber();
-            WriteLine(" *");
-            num2 = GetNumber();
             WriteLine($"\n{num1} * {num2} = {num1 * num2}");
             ReadLine();
         }
-        static void Dela()
+        static void Dela(double num1, double num2)
         {
-            //Start:
-            num1 = GetNumber();
-            WriteLine(" ÷");
-            num2 = GetNumber();
             if (num2 != 0)
                 WriteLine($"\n{ num1 } ÷ { num2 } = { num1 / num2 }");
             else
             {
-                WriteLine("Error Divide by zero, ange ny nummer: "); 
-                //goto Start;
-                Dela();
+                WriteLine("Error Divide by zero "); 
             }
             ReadLine();
         }
