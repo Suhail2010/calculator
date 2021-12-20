@@ -1,7 +1,7 @@
 using Microsoft.VisualStudio.TestPlatform.TestHost;
 using Xunit;
 
-namespace UnitTest1 //Calc_Program_Test
+namespace Calc_Program_Test
 {
     public class TestZeroDivision
     {
