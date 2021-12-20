@@ -4,10 +4,10 @@ using static System.Console;
 namespace calc
 {
    
-    class Program
+    public class Program
     { 
-        static double num1, num2;
-        static void Main(string[] args)
+        public double num1, num2;
+        public void Main(string[] args)
         {
              
             bool run = true;
@@ -61,34 +61,34 @@ namespace calc
             
         }
 
-        static int Menue()
+        public int Menue()
         {
             bool check = int.TryParse(ReadLine(), out int input);
             return check && input > -1 && input < 5 ? input : Menue();
         }
 
-        static double GetNumber()
+        public double GetNumber()
         {
             bool check = double.TryParse(ReadLine(), out double input);
             return check ? input : GetNumber();
         }
 
-        static void Plus(double num1,double num2)
+        public void Plus(double num1,double num2)
         {
             WriteLine($"\n{num1} + {num2} = {num1 + num2}");
             ReadLine();
         }
-        static void Minus(double num1, double num2)
+        public void Minus(double num1, double num2)
         {
             WriteLine($"\n{num1} - {num2} = {num1 - num2}");
             ReadLine();
         }
-        static void Multi(double num1, double num2)
+        public void Multi(double num1, double num2)
         {
             WriteLine($"\n{num1} * {num2} = {num1 * num2}");
             ReadLine();
         }
-        static void Dela(double num1, double num2)
+        public void Dela(double num1, double num2)
         {
             if (num2 != 0)
                 WriteLine($"\n{ num1 } ÷ { num2 } = { num1 / num2 }");
