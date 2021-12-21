@@ -5,7 +5,8 @@ namespace calc
 {
    
     public class Program
-    { 
+    {
+
         public double num1, num2;
         public void Main(string[] args)
         {
