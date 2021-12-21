@@ -89,7 +89,7 @@ namespace calc
             WriteLine($"\n{num1} * {num2} = {num1 * num2}");
             ReadLine();
         }
-        public static void Dela(double num1, double num2)
+        public static double Dela(double num1, double num2)
         {
             if (num2 != 0)
                 WriteLine($"\n{ num1 } ÷ { num2 } = { num1 / num2 }");
@@ -98,6 +98,7 @@ namespace calc
                 WriteLine("Error Divide by zero "); 
             }
             ReadLine();
+            return num1/num2;
         }
     }
 }
