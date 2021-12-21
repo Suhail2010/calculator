@@ -1,4 +1,4 @@
-using Microsoft.VisualStudio.TestPlatform.TestHost;
+using calc
 using Xunit;
 
 namespace Calc_Program_Test
