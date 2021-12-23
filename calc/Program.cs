@@ -3,23 +3,26 @@ using static System.Console;
 
 namespace calc
 {
-   
-    public class Program
+
+    public static class Program
     {
 
-        public double num1, num2;
-        public void Main(string[] args)
+        public static double num1, num2;
+        public static double[] num3, num4, nums;
+        public static void Main(string[] args)
         {
              
             bool run = true;
             while (run)
             {
                 WriteLine(
-                    "1. Plus            + \n" +
-                    "2. Minus           - \n" +
-                    "3. Multiplicera    * \n" +
-                    "4. Dela upp        ÷ \n" +
-                    "0. Stäng Programmet  \n"
+                    "\n1. Plus            + \n" +
+                    "\n2. Minus           - \n" +
+                    "\n3. Multiplicera    * \n" +
+                    "\n4. Dela upp        ÷ \n" +
+                    "\n5. Array Tillägg   + \n" +
+                    "\n6. Array Tillägg   - \n" +
+                    "\n\n0. Stäng Programmet  \n"
                     );
                 WriteLine("Välja en matematisk operation");
                 int menue = Menue();
@@ -51,54 +54,91 @@ namespace calc
                         num2 = GetNumber();
                         Dela(num1, num2);
                         break;
+                    case 5:
+                        Plus(new double[] {23,55,76,543,345});
+                        break;
+                    case 6:
+                        Minus(new double[] {23, 55, 76, 543, 345 });
+                        break;
+
                     case 0:
                         Clear();
                         WriteLine("\nVill du stänga programmet tryck y");
                         if (ReadLine() == "y") run = false;
                         break;
                 }
+                ReadLine();
                 Clear();                
             }
             
         }
 
-        public int Menue()
+        public static int Menue()
         {
             bool check = int.TryParse(ReadLine(), out int input);
-            return check && input > -1 && input < 5 ? input : Menue();
+            return check && input > -1 && input < 7 ? input : Menue();
         }
 
-        public double GetNumber()
+        public static double GetNumber()
         {
             bool check = double.TryParse(ReadLine(), out double input);
             return check ? input : GetNumber();
         }
 
-        public void Plus(double num1,double num2)
+        public static double Plus(double num1,double num2)
         {
             WriteLine($"\n{num1} + {num2} = {num1 + num2}");
-            ReadLine();
+            return num1 + num2;
         }
-        public void Minus(double num1, double num2)
+        public static double Minus(double num1, double num2)
         {
             WriteLine($"\n{num1} - {num2} = {num1 - num2}");
-            ReadLine();
+            return num1 - num2;
         }
-        public void Multi(double num1, double num2)
+        public static double Multi(double num1, double num2)
         {
             WriteLine($"\n{num1} * {num2} = {num1 * num2}");
-            ReadLine();
+            return num1 * num2;
         }
         public static double Dela(double num1, double num2)
         {
-            if (num2 != 0)
-                WriteLine($"\n{ num1 } ÷ { num2 } = { num1 / num2 }");
-            else
+            try
             {
-                WriteLine("Error Divide by zero "); 
+                if (num2 != 0)
+                    WriteLine($"\n{ num1 } ÷ { num2 } = { num1 / num2 }");
+                else
+                {
+                    throw new DivideByZeroException("Can't Divide by zero ");
+                }
+                
+
             }
-            ReadLine();
-            return num1/num2;
+            catch(DivideByZeroException e)
+            {
+                WriteLine(e.Message);
+            }
+            return num1 / num2;
         }
+
+        public static void Plus(double[] nums)
+        {
+            double sum = 0;
+            for (int i = 0; i < nums.Length; i++)
+            {
+                sum = sum + nums[i];
+                WriteLine($"\n{sum-nums[i]} + {nums[i]} = {sum}");
+            }
+
+        }
+        public static void Minus(double[] nums)
+        {
+            double sum = 0;
+            for (int i = 0; i < nums.Length; i++)
+            {
+                sum = sum - nums[i];
+                WriteLine($"\n{sum + nums[i]} - {nums[i]} = {sum}");
+            }
+        }
+
     }
 }
