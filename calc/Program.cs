@@ -58,7 +58,7 @@ namespace calc
                         Plus(new double[] {23,55,76,543,345});
                         break;
                     case 6:
-                        Minus(new double[] {23, 55, 76, 543, 345 });
+                        Minus(new double[] {10 , 2, 12, 2});
                         break;
 
                     case 0:
@@ -109,18 +109,30 @@ namespace calc
                 else
                 {
                     throw new DivideByZeroException("Can't Divide by zero ");
+                    
                 }
-                
-
             }
-            catch(DivideByZeroException e)
+            catch (DivideByZeroException e)
             {
                 WriteLine(e.Message);
+           
             }
             return num1 / num2;
         }
+        public static double Dela2(double num1, double num2)
+        {
+                if (num2 != 0)
+                    WriteLine($"\n{ num1 } ÷ { num2 } = { num1 / num2 }");
+                else
+                {
+                    throw new DivideByZeroException("Can't divide by zero ");
 
-        public static void Plus(double[] nums)
+                }
+            
+            return num1 / num2;
+        }
+
+        public static double Plus(double[] nums)
         {
             double sum = 0;
             for (int i = 0; i < nums.Length; i++)
@@ -128,16 +140,18 @@ namespace calc
                 sum = sum + nums[i];
                 WriteLine($"\n{sum-nums[i]} + {nums[i]} = {sum}");
             }
+            return sum;
 
         }
-        public static void Minus(double[] nums)
+        public static double Minus(double[] nums)
         {
-            double sum = 0;
-            for (int i = 0; i < nums.Length; i++)
+            double sum = nums[0];
+            for (int i = 1; i < nums.Length; i++)
             {
                 sum = sum - nums[i];
                 WriteLine($"\n{sum + nums[i]} - {nums[i]} = {sum}");
             }
+            return sum;
         }
 
     }
